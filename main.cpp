@@ -55,10 +55,13 @@ int main() {
     book.submit(Order(11, 'B', 5.0, 8)); // Iria pegar o ID 9 se não fosse cancelado
     cout << "Compras antes de cancelar:" << endl;
     book.printBuyOrders();
-    
+
+    // Cancelando ordem de compra ID 11 e tentando cancelar ID inválido
     bool cancelled = book.cancel(11);
     cout << "Ordem cancelada: " << cancelled << endl;
     cout << "Compras apos o cancelamento:" << endl;
+    bool invalid = book.cancel(666);
+    cout << "Ordem inválida: " << invalid << endl;
     book.printBuyOrders();
 
     // Executando o teste dos metodos get...

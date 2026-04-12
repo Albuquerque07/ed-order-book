@@ -147,4 +147,30 @@ bool OrderBook::submit(Order order) {
     }
 
     return false;
-}   
+} 
+
+
+bool OrderBook::cancel(int id) {
+    
+    // Busca na lista de Ordens de Compra
+    OrderNode* current = buy_head;
+    while (current != nullptr) {
+        if (current->order.getId() == id) {
+            removeOrder(buy_head, current);
+            return true;
+        }
+        current = current->next;
+    }
+
+    // Busca na lista de Ordens de Venda
+    current = sell_head;
+    while (current != nullptr) {
+        if (current->order.getId() == id) {
+            removeOrder(sell_head, current);
+            return true;
+        }
+        current = current->next;
+    }
+
+    return false;
+}
