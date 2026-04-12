@@ -4,11 +4,32 @@
 #include "Order.hpp"
 #include "Transaction.hpp"
 
+// Nó que guarda uma Order na lista encadeada
+struct OrderNode {
+    Order order;
+    OrderNode* next;
+
+    OrderNode(Order o) : order(o) {
+        this->next = nullptr;
+    }
+};
+
+// Nó que guarda uma Transaction na lista encadeada
+struct TransactionNode {
+    Transaction transaction;
+    TransactionNode* next;
+
+    TransactionNode(Transaction t) : transaction(t) {
+        this->next = nullptr;
+    }
+};
+
 class OrderBook {
 private:
 
-    // Estruturas internas escolhidas pelos alunos
-    // para armazenar ordens de compra, venda e transações
+    OrderNode* buy_head;
+    OrderNode* sell_head;
+    TransactionNode* trans_head;
 
 public:
 
@@ -25,8 +46,6 @@ public:
     void printBuyOrders();
     void printSellOrders();
     void printTransactions();
-
-    // Outros métodos auxiliares, se necessário
 };
 
 #endif
