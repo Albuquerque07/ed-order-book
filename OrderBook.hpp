@@ -31,6 +31,12 @@ private:
     OrderNode* sell_head;
     TransactionNode* trans_head;
 
+    void insertOrder(OrderNode*& head, Order order);
+    void insertTransaction(Transaction transaction);
+    void removeOrder(OrderNode*& head, OrderNode* target);
+    OrderNode* findBestSell(float buy_price);
+    OrderNode* findBestBuy(float sell_price);
+
 public:
 
     OrderBook();
