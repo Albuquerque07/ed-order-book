@@ -1,5 +1,14 @@
 #include "Order.hpp"
 
+//Construtor Default
+Order::Order(){
+    this->id = 0;
+    this->type = 0;
+    this->price = 0;
+    this->timestamp = 0;
+
+}
+
 // Construtor
 Order::Order(int id, char type, float price, int timestamp) {
     this->id = id;

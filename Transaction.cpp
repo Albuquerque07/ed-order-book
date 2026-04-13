@@ -1,5 +1,12 @@
 #include "Transaction.hpp"
 
+// COnstrutor Padrão
+Transaction::Transaction() {
+    this->buy_order_id = 0;
+    this->sell_order_id = 0;
+    this->execution_price = 0;
+}
+
 // Construtor
 Transaction::Transaction(int buy_order_id, int sell_order_id, float execution_price) {
     this->buy_order_id = buy_order_id;
